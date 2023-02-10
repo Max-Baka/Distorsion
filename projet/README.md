@@ -1,0 +1,93 @@
+# Distorsion
+
+- projet
+     - class
+        - User.php
+        - Salon.php
+        - SubCategory.php
+        - Category.php  
+        - Post.php
+    - logic
+        - router.php
+        - database.php
+    - pages
+        - homepage.php
+        - login.php
+        - register.php
+        - registerSalon.php
+        - registerCategory
+    - templates
+        - partials
+            - _main.phtml
+        - login
+            - login.phtml
+            - _login-form.phtml
+        - registerSalon
+            - registerSalon.phtml
+            - registerSalon-form.phtml
+        - register
+            - register.phtml
+            - _register-form.phtml
+        - registerCategory
+            - registerCategory.phtml
+            - registerCategory-form.phtml
+        - aside
+            - aside.phtml
+        - chatroom
+            - chatroom.phtml
+        - layout.phtml 
+    - assets
+        - js
+        - styles
+            - scss
+            - css
+        - images
+    - index.php
+
+
+- class
+        - User.php
+            -> id
+            -> username
+            -> email
+            -> password
+                - getter
+                - setter
+        - Salon.php
+            -> id
+            -> name
+            -> category
+                - getter
+                - setter
+                - addSalon
+                - removeSalon
+        - SubCategory.php
+            -> id
+            -> name
+            -> category 
+                - getter
+                - setter
+                - addSubCategory
+                - removeSubCategory
+        - Category.php  
+            -> id
+            -> name
+                - getter
+                - setter
+                - addCategory
+                - removeCategory
+        - Post.php
+            -> id
+            -> text
+            -> salon
+                - getter
+                - setter
+                - addPost
+
+
+- table
+    - User
+    - Category
+    - Salon
+    - SubCategory
+    - Post
