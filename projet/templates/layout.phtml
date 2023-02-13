@@ -1,18 +1,22 @@
-<!DOCTYPE html>  
-<html lang="fr">  
-    <head>        
-        <meta charset="utf-8">  
-        <title>templates</title>  
-        <link rel="stylesheet" href="style.css" />  
-    </head>    
-    <body>        
-   <?php  
-    require  'partials/_header.phtml'; 
-   
-    require 'partials/_footer.phtml';
+</html>
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>discoyep</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="assets/styles/css/style.css">
+    <script src="https://kit.fontawesome.com/dbf8b52bf4.js" crossorigin="anonymous"></script>
+</head>
+<?php  
+    require  'partials/_header.phtml'; ?>
+<body>
     
-    
-     require $template.'/'.$template.'.phtml'; 
-    ?>
-    </body>
+    <h1>Mon Site</h1>
+    <?php require 'homepage/homepage.phtml';?>
+</body>
+<?php  
+    require  'partials/_footer.phtml'; ?>
 </html>

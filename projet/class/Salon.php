@@ -2,16 +2,16 @@
 class Salon {
 
     // private attribute
-    private int $id;
+    private ?int $id;
     private string $name;
-    private string $category;
+    private int $category_id;
 
     // public constructor
-    public function __construct(string $name, string $category)
+    public function __construct(string $name, int $category_id)
     {
-        $this->id = -1;
+        $this->id = null;
         $this->name = $name;
-        $this->category = $category;
+        $this->category_id = $category_id;
     }
 
     // public getter
@@ -23,9 +23,9 @@ class Salon {
     {
         return $this->name;
     }
-    public function getCategory() : string
+    public function getCategory_id() : int
     {
-        return $this->category;
+        return $this->category_id;
     }
 
     // public setter
@@ -37,9 +37,9 @@ class Salon {
     {
         $this->name = $name;
     }
-    public function setCategory(string $category) : void
+    public function setCategory(int $category_id) : void
     {
-        $this->category = $category;
+        $this->category_id = $category_id;
     }
 }
 ?>

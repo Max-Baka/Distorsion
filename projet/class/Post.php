@@ -1,35 +1,21 @@
-<!--Post.php-->
-<!--Votre classe Post :-->
-
-<!--attributs private-->
-<!--id int-->
-<!--title string-->
-<!--content string-->
-<!--author qui est un User-->
-<!--category qui est une PostCategory-->
-<!--accesseurs public-->
-<!--Pour chacun des attributs.-->
-
-<!--constructeur-->
-<!--Prend title, content, author, category en paramètres et les initialise. Initialise id avec la valeur null.-->
 <?php
 class Post {
 
     // private attribute
-    private int $id;
+    private ?int $id;
     private string $text;
-    private Salon $salon;
+    private int $salon_id;
 
     // public constructor
-    public function __construct(string $text, Salon $salon)
+    public function __construct(string $text, int $salon_id)
     {
-        $this->id = -1;
+        $this->id = null;
         $this->text = $text;
-        $this->salon = $salon;
+        $this->salon_id = $salon_id;
     }
 
     // public getter
-    public function getId() : int
+    public function getId() : ?int
     {
         return $this->id;
     }
@@ -37,13 +23,13 @@ class Post {
     {
         return $this->text;
     }
-    public function getSalon() : string
+    public function getSalon_id() : int
     {
-        return $this->salon;
+        return $this->salon_id;
     }
 
     // public setter
-    public function setId(int $id) : void
+    public function setId(?int $id) : void
     {
         $this->id = $id;
     }
@@ -51,9 +37,9 @@ class Post {
     {
         $this->text = $text;
     }
-    public function setSalon(string $salon) : void
+    public function setSalon_id(int $salon_id) : void
     {
-        $this->salon = $salon;
+        $this->salon_id = $salon_id;
     }
 }
 ?>

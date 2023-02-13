@@ -1,26 +1,32 @@
 <?php
-function checkRoute(string $route) : void 
-{
-    if ($route === "connexion") 
-{
-    require  'pages/login.php';
-}
-else if ($route === "creer-un-compte")
-{
-    require  'pages/register.php';
-}
-else if ($route === "creer-un-salon")
-{
-    require  'pages/registerSalon.php';
-}
-else if ($route === "creer-une-categorie")
-{
-    require  'pages/registerCategory.php';
-}
-
-else
-{
-    require  'pages/homepage.php';
-}
+require 'controllers/UserController.php';
+class Router {
+    private UserController $uc;
+    public function __construct()
+    {
+        $this->uc = new UserController();
+        
+    }
+    
+    function checkRoute(string $route) : void
+    {
+        if ($route === "accueil") 
+        {
+           $this->uc->accueil();
+        }
+        else if ($route === "register")
+        {
+            $this->uc->create();
+        }
+        
+        else if ($route === "user-edit")
+        {
+            $this->uc->index();
+        }
+        else
+        {
+            $this->uc->index();
+        }
+    }
 }
 ?>

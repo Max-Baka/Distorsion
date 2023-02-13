@@ -11,6 +11,37 @@ class PostManager extends AbstractManager {
         $this->password = "e17f39e5cb4de95dba99a2edd6835ab4";
         $this->initDb();
     }
+    public function getPostById(int $id) : Post
+    {
+       
+        $query = $this->db->prepare("SELECT * FROM posts WHERE id=:id");
+        $parameters = [
+            'id'=>$id
+        ];
+        $query->execute($parameters);
+        $posts = $query->fetch(PDO::FETCH_ASSOC);
+        $return = new Post($posts["text"],$posts["salon_id"]);
+        $return->setId($posts["id"]);
+        
+        return $return;
+    }
+    public function insertPOST(Post $post) : Post
+    {
+        $query = $this->db->prepare('INSERT INTO posts VALUES (null, :value1, :value2)');
+        $parameters = [
+        'value1' => $post->getText(),
+        'value2' => $post->getSalon_id()
+        ];
+        $query->execute($parameters);
+        
+        $query = $this->db->prepare("SELECT * FROM posts WHERE Salon_id=:value");
+        $parameter = ['value' => $post->getSalon_id()];
+        $query->execute($parameter);
+        $posts = $query->fetch(PDO::FETCH_ASSOC);
+        $postToReturn = new Post($posts["text"],$posts["salon_id"]);
+        $postToReturn->setId($posts["id"]);
+        return $postToReturn;
+    }
     
 }
 ?>

@@ -20,7 +20,7 @@ class SalonManager extends AbstractManager {
         ];
         $query->execute($parameters);
         $salons = $query->fetch(PDO::FETCH_ASSOC);
-        $return = new Salon($salons["name"],$salons["category"]);
+        $return = new Salon($salons["name"],$salons["category_id"]);
         $return->setId($salons["id"]);
         
         return $return;
@@ -30,17 +30,17 @@ class SalonManager extends AbstractManager {
         $query = $this->db->prepare('INSERT INTO salon VALUES (null, :value1, :value2)');
         $parameters = [
         'value1' => $salon->getName(),
-        'value2' => $salon->getCategory()
+        'value2' => $salon->getCategory_id()
         ];
         $query->execute($parameters);
         
-        $query = $this->db->prepare("SELECT * FROM user WHERE name=:value");
-        $parameter = ['value' => $user->getName()];
+        $query = $this->db->prepare("SELECT * FROM salon WHERE name=:value");
+        $parameter = ['value' => $salon->getName()];
         $query->execute($parameter);
         $salons = $query->fetch(PDO::FETCH_ASSOC);
-        $salonToReturn = new Salon($salons["name"],$salons["category"]);
-        $salonToReturn->setName($salons["id"]);
-        return $salonToReturn ;
+        $UserToReturn = new Salon($salons["name"],$salons["category_id"]);
+        $UserToReturn->setId($salons["id"]);
+        return $UserToReturn ;
     }
 }
 ?>
