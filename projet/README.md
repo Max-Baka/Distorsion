@@ -60,22 +60,12 @@
                 - getter
                 - setter
                 - addSalon
-                - removeSalon
-        - SubCategory.php
-            -> id
-            -> name
-            -> category 
-                - getter
-                - setter
-                - addSubCategory
-                - removeSubCategory
         - Category.php  
             -> id
             -> name
                 - getter
                 - setter
-                - addCategory
-                - removeCategory
+                - addSalon
         - Post.php
             -> id
             -> text
@@ -91,3 +81,9 @@
     - Salon
     - SubCategory
     - Post
+
+
+controller 
+
+create qui render une page d'inscription
+conect qui render une page de connection
