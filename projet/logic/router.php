@@ -18,14 +18,13 @@ class Router {
         {
             $this->uc->create();
         }
-        
-        else if ($route === "user-edit")
+        else if($route === "login")
         {
-            $this->uc->index();
+            $this->uc->login();
         }
         else
         {
-            $this->uc->index();
+            $this->uc->accueil();
         }
     }
 }
