@@ -27,6 +27,28 @@ class UserManager extends AbstractManager {
         
         return $return;
     }
+    public function getUserByEmail(string $email) : ?User
+    {
+       
+        $query = $this->db->prepare("SELECT * FROM user WHERE email=:email");
+        $parameters = [
+            'email'=>$email
+        ];
+        $query->execute($parameters);
+        
+        $users = $query->fetch(PDO::FETCH_ASSOC);
+        if($users!==false)
+        {
+            $return = new User($users["username"],$users["email"],$users["password"]);
+            $return->setId($users["id"]);
+            return $return;
+        }
+        else
+        {
+            return null;
+        }
+        
+    }
     
     public function insertUser(User $user) : User
     {

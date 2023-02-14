@@ -1,0 +1,20 @@
+ <form method="post" action="index.php?route=register-post">
+                
+                    <label for="NomPost">ecrit ton message</label>
+                    <input type="text" name="NomPost" id="NomPost" />
+                    
+                    <label for="post">Choisit un salon</label>
+                    <select name="post" id="post">
+                     
+                     <option value="Quidditch">Quidditch</option>
+                     <option
+                     value=<?php
+                        foreach($salons[$this->displaysalon()] as $salon)
+                        {
+                          echo"$salon->getName()";
+                        }
+                     ?>></option>
+                    </select>
+                    
+                    <input type="submit" value="Envoyer"/>
+            </form>
