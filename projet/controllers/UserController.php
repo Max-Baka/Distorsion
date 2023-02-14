@@ -12,27 +12,51 @@ class UserController extends AbstractController {
         {
             $this->render("homepage", []);
         }
-        public function login()
+        
+        public function login(array $Post) : void
         {
-            $this->render("login", []);
+            if (!empty($Post))
+            {
+                if (($Post['email']!=='') && ($Post['password']!=='')) 
+                 {
+                     if($this->loginUser($Post["email"],$Post["password"])===true)
+                     {
+                         $_SESSION["Connected"]=true;
+                         $_GET["route"]="homepage";
+                         $this->render("homepage", []);
+                     }
+                     else 
+                     {
+                         $this->render("login", []);
+                     }
+                 }
+            }
+            else
+            {
+                $this->render("login", []);
+            }
+            
+            
         }
-        public function register()
+        public function register(array $post)
         {
+            
+            if (!empty($post))
+            {
+                 if (($post['username']!=='' )  &&  ($post['email']!=='') && ($post['password']!=='')) 
+                 {
+                     $userToAdd = new User($post["username"],$post["email"],$post["password"]);
+                     $this->manager->insertUser($userToAdd);
+                 }
+            }
             $this->render("register", []);
         }
         
-         public function create(array $post)
-         {
-             $user = new User($post['username'], $post['email'], $post['password']);
-             $this->manager-> insertUser($user);
-             $this->render("register", ["user"=>$this->manager->insertUser($user)]);
-         }
-        
-        public function loginUser (string $Email , string $Password):bool 
+        private function loginUser(string $Email , string $Password):bool 
         {
              $user = $this->manager->getUserByEmail($Email);
     
-             if($user !== null && $Password === $User->getPassword())
+             if($user !== null && $Password === $user->getPassword())
              {
                 return true;   
              }
@@ -41,6 +65,7 @@ class UserController extends AbstractController {
                 return false;
              }
         }
+        
 
 }
 

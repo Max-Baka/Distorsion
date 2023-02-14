@@ -4,14 +4,14 @@ class Post {
     // private attribute
     private ?int $id;
     private string $text;
-    private int $salon_id;
+    private string $salon;
 
     // public constructor
-    public function __construct(string $text, int $salon_id)
+    public function __construct(string $text, string $salon)
     {
         $this->id = null;
         $this->text = $text;
-        $this->salon_id = $salon_id;
+        $this->salon = $salon;
     }
 
     // public getter
@@ -23,9 +23,9 @@ class Post {
     {
         return $this->text;
     }
-    public function getSalon_id() : int
+    public function getSalon() : string
     {
-        return $this->salon_id;
+        return $this->salon;
     }
 
     // public setter
@@ -37,9 +37,9 @@ class Post {
     {
         $this->text = $text;
     }
-    public function setSalon_id(int $salon_id) : void
+    public function setSalon(string $salon) : void
     {
-        $this->salon_id = $salon_id;
+        $this->salon = $salon;
     }
 }
 ?>

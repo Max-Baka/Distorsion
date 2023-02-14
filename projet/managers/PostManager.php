@@ -20,7 +20,7 @@ class PostManager extends AbstractManager {
         ];
         $query->execute($parameters);
         $posts = $query->fetch(PDO::FETCH_ASSOC);
-        $return = new Post($posts["text"],$posts["salon_id"]);
+        $return = new Post($posts["text"],$posts["salon"]);
         $return->setId($posts["id"]);
         
         return $return;
@@ -30,15 +30,15 @@ class PostManager extends AbstractManager {
         $query = $this->db->prepare('INSERT INTO posts VALUES (null, :value1, :value2)');
         $parameters = [
         'value1' => $post->getText(),
-        'value2' => $post->getSalon_id()
+        'value2' => $post->getSalon()
         ];
         $query->execute($parameters);
         
-        $query = $this->db->prepare("SELECT * FROM posts WHERE Salon_id=:value");
-        $parameter = ['value' => $post->getSalon_id()];
+        $query = $this->db->prepare("SELECT * FROM posts WHERE Salon=:value");
+        $parameter = ['value' => $post->getSalon()];
         $query->execute($parameter);
         $posts = $query->fetch(PDO::FETCH_ASSOC);
-        $postToReturn = new Post($posts["text"],$posts["salon_id"]);
+        $postToReturn = new Post($posts["text"],$posts["salon"]);
         $postToReturn->setId($posts["id"]);
         return $postToReturn;
     }

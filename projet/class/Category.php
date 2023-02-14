@@ -2,14 +2,14 @@
 class Category {
 
     // private attribute
-    private int $id;
+    private ?int $id;
     private string $name;
     private array $salons;
 
     // public constructor
     public function __construct(string $name)
     {
-        $this->id = -1;
+        $this->id = null;
         $this->name = $name;
         $this->salons = [];
         

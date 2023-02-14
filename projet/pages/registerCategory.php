@@ -1,4 +1,4 @@
 <?php
-$template = "registerCategory";
+$template = "register-category";
 require "templates/layout.phtml";
 ?>
