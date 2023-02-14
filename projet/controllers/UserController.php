@@ -25,7 +25,7 @@ class UserController extends AbstractController {
          {
              $user = new User($post['username'], $post['email'], $post['password']);
              $this->manager-> insertUser($user);
-             render("register", ["user"=>$this->manager->insertUser($user)]);
+             $this->render("register", ["user"=>$this->manager->insertUser($user)]);
          }
         
         public function loginUser (string $Email , string $Password):bool 
