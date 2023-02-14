@@ -10,22 +10,21 @@ class Router {
     
     function checkRoute(string $route) : void
     {
-        if ($route === "accueil") 
+        if ($route === "homepage") 
         {
            $this->uc->accueil();
         }
         else if ($route === "register")
         {
-            $this->uc->create();
+            $this->uc->register();
         }
-        
-        else if ($route === "user-edit")
+        else if ($route === "login")
         {
-            $this->uc->index();
+            $this->uc->login();
         }
         else
         {
-            $this->uc->index();
+            $this->uc->accueil();
         }
     }
 }

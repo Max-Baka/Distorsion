@@ -12,12 +12,36 @@ class UserController extends AbstractController {
         {
             $this->render("homepage", []);
         }
-        public function create(array $post)
+        public function login()
         {
-            $user = new User($post['username'], $post['email'], $post['password']);
-            $this->manager-> insertUser($user);
-            render("register", ["user"=>$this->manager->insertUser($user)]);
+            $this->render("login", []);
         }
+        public function register()
+        {
+            $this->render("register", []);
+        }
+        
+         public function create(array $post)
+         {
+             $user = new User($post['username'], $post['email'], $post['password']);
+             $this->manager-> insertUser($user);
+             render("register", ["user"=>$this->manager->insertUser($user)]);
+         }
+        
+        public function loginUser (string $Email , string $Password):bool 
+        {
+             $user = $this->manager->getUserByEmail($Email);
+    
+             if($user !== null && $Password === $User->getPassword())
+             {
+                return true;   
+             }
+             else
+             {
+                return false;
+             }
+        }
+
 }
 
 ?>
