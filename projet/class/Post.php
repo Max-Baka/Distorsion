@@ -9,9 +9,9 @@ class Post {
     // public constructor
     public function __construct(string $text, string $salon)
     {
-        $this->id = null;
-        $this->text = $text;
-        $this->salon = $salon;
+        $this->id=null;
+        $this->text=$text;
+        $this->salon=$salon;
     }
 
     // public getter

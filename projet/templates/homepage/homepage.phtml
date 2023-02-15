@@ -1,4 +1,13 @@
 <h1>Accueil</h1>
-<ul>
-    <li></li>
+<?php foreach($data2 as $category){ ?>
+        <ul><?= $category->getName()?>
+                     <?php } ?>
+
+    <?php foreach($data as $salon){ ?>
+        <li><?= $salon->getName()?></li>
+                     <?php } ?>
 </ul>
+
+
+
+                    

@@ -3,11 +3,12 @@
                     <label for="NomSalon">Nom de Salon</label>
                     <input type="text" name="NomSalon" id="NomSalon" />
                     
-                    <label for="category">Choisit une catégorie</label>
-                    <select name="category" id="category">
-                     
-                     <option value="Hogwarts">Hogwarts</option>
+                    <label>Choisit une catégorie</label>
+                    <select name="cat">
+                     <?php 
+                          foreach($data as $category){ ?>
+        <option><?= $category->getName()."".$category->getId()?></option>
+                     <?php } ?>
                     </select>
-                    
                     <input type="submit" value="Envoyer"/>
             </form>

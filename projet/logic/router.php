@@ -27,7 +27,7 @@ class Router {
            }
            else 
            {
-               $this->uc->accueil();
+               $this->uc->displayCategory();
            }
         }
         else if ($route === "register-category") 

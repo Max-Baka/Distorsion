@@ -3,18 +3,17 @@
                     <label for="NomPost">ecrit ton message</label>
                     <input type="text" name="NomPost" id="NomPost" />
                     
-                    <label for="post">Choisit un salon</label>
-                    <select name="post" id="post">
-                     
-                     <option value="Quidditch">Quidditch</option>
-                     <option
-                     value=<?php
-                        foreach($salons[$this->displaysalon()] as $salon)
-                        {
-                          echo"$salon->getName()";
-                        }
-                     ?>></option>
+                    <label>Choisit un salon</label>
+         
+                    <select name="salon">
+                     <?php 
+                          foreach($data as $salon){ 
+                          ?>
+        <option><?= $salon->getName()."".$salon->getId();
+         
+        ?></option>
+                     <?php } ?>
                     </select>
-                    
+                    <?php ?>
                     <input type="submit" value="Envoyer"/>
             </form>
