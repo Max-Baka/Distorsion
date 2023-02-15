@@ -8,16 +8,15 @@
 
     <link rel="stylesheet" href="assets/styles/css/style.css">
     <script src="https://kit.fontawesome.com/dbf8b52bf4.js" crossorigin="anonymous"></script>
+    
 </head>
-<?php  
-    require  'partials/_header.phtml'; ?>
 <body>
-    <h1>Mon Site</h1>
+    <h1>Distorsion</h1>
+    <?php  require  'partials/_header.phtml'; ?>
+    <main>
     <?php require "templates/".$template."/".$template.".phtml";?>
-</body>
-    <?php  
-
-    require  'partials/_footer.phtml'; ?>
+    </main>
+    <?php  require  'partials/_footer.phtml'; ?>
     <section id="write">
         <form>
             <label for="message">Message :</label>
@@ -26,4 +25,7 @@
                 </textarea>
             <button type="submit">Envoyer</button>
         </form>
+</body>
+    
+    
 </html>
