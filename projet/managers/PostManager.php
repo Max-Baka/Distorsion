@@ -42,6 +42,22 @@ class PostManager extends AbstractManager {
         $postToReturn->setId($posts["id"]);
         return $postToReturn;
     }
+    function findAllPost() : array
+        {
+            $query = $this->db->prepare("SELECT * FROM posts");
+            $query->execute([]);
+            $posts = $query->fetchAll(PDO::FETCH_ASSOC);
+          
+            $return = [];
+            foreach ($posts as $post)
+            {
+                $newpost= new Post($post["text"],$post["salon"]);
+                $newpost->setId($post["id"]);
+                $return[]=$newpost;
+                
+            }
+            return $return;
+        }
     
 }
 ?>

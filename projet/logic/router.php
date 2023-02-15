@@ -30,6 +30,18 @@ class Router {
                $this->uc->displayCategory();
            }
         }
+        if ($route === "chatroom") 
+        {
+           
+           if (isset($_SESSION["Connected"]) && $_SESSION["Connected"]!==true)
+           {
+               $this->uc->login();
+           }
+           else 
+           {
+               $this->uc->displayCategory();
+           }
+        }
         else if ($route === "register-category") 
         {
             $this->uC->createCategory($_POST);
@@ -60,8 +72,7 @@ class Router {
            }
            else 
            {
-               $this->uc->accueil();
-               echo"else";
+               $this->uc->displayCategory();
            }
         }
     }
