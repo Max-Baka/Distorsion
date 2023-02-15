@@ -32,7 +32,6 @@ class CategoryManager extends AbstractManager {
         'value1' => $category->getName()
         ];
         $query->execute($parameters);
-        
         $query = $this->db->prepare("SELECT * FROM category WHERE name=:value");
         $parameter = ['value' => $category->getName()];
         $query->execute($parameter);
@@ -40,6 +39,22 @@ class CategoryManager extends AbstractManager {
         $categoryToReturn = new Category($categorys["name"]);
         $categoryToReturn->setId($categorys["id"]);
         return $categoryToReturn;
+     
     }
+    function findAllCategory() : array
+        {
+            $query = $this->db->prepare("SELECT * FROM category");
+            $query->execute([]);
+            $categorys = $query->fetchAll(PDO::FETCH_ASSOC);
+          
+            $return = [];
+            foreach ($categorys as $category)
+            {
+                $newCat = new Category($category["name"]);
+                $newCat->setId($category["id"]);
+                $return[]=$newCat;
+            }
+            return $return;
+        }
 }
 ?>

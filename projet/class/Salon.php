@@ -13,9 +13,8 @@ class Salon {
         $this->name=$name;
         $this->category=$category;
     }
-
     // public getter
-    public function getId() : int
+    public function getId() : ?int
     {
         return $this->id;
     }
@@ -29,7 +28,7 @@ class Salon {
     }
 
     // public setter
-    public function setId(int $id) : void
+    public function setId(?int $id) : void
     {
         $this->id = $id;
     }

@@ -33,7 +33,6 @@ class SalonManager extends AbstractManager {
         'value2' => $salon->getCategory()
         ];
         $query->execute($parameters);
-        
         $query = $this->db->prepare("SELECT * FROM salon WHERE name=:value");
         $parameter = ['value' => $salon->getName()];
         $query->execute($parameter);
@@ -51,7 +50,10 @@ class SalonManager extends AbstractManager {
             $return = [];
             foreach ($salons as $salon)
             {
-                $return[] = new Salon($salons["name"],$salons["category"]);
+                $newsalon= new Salon($salon["name"],$salon["category"]);
+                $newsalon->setId($salon["id"]);
+                $return[]=$newsalon;
+                
             }
             return $return;
         }

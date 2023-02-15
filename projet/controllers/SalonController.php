@@ -4,25 +4,28 @@ class SalonController extends AbstractController {
     
     public function __construct()
     {
+        
         $this->manager = new SalonManager("kilyangerard_distorsion","3306","db.3wa.io","kilyangerard","e17f39e5cb4de95dba99a2edd6835ab4");
     }
   
         public function createSalon(array $post)
         {
+            $CM = new CategoryManager("kilyangerard_distorsion","3306","db.3wa.io","kilyangerard","e17f39e5cb4de95dba99a2edd6835ab4");
             
             if (!empty($post))
             {
-                 if ($post['NomSalon']!=='') 
+                var_dump($post["cat"]);
+                var_dump($post['NomSalon']);
+                 if ($post['NomSalon']!=='' && $post["cat"]!=='') 
                  {
-                     $SalonToAdd = new Salon($post["NomSalon"], $post["category"]);
+                     $SalonToAdd = new Salon($post["NomSalon"], $post["cat"]);
                      $this->manager->insertSalon($SalonToAdd);
                  }
             }
-            $this->render("register-salon", []);
+            $Categories=$CM->findAllCategory();
+            $this->render("register-salon", $Categories);
+            
         }
-       
-        
-
 }
 
 ?>

@@ -6,7 +6,6 @@ class CategoryController extends AbstractController {
     {
         $this->manager = new CategoryManager("kilyangerard_distorsion","3306","db.3wa.io","kilyangerard","e17f39e5cb4de95dba99a2edd6835ab4");
     }
-  
         public function createCategory(array $post)
         {
             
@@ -20,9 +19,7 @@ class CategoryController extends AbstractController {
             }
             $this->render("register-category", []);
         }
-       
         
-
+        
 }
-
 ?>

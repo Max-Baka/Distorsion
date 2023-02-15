@@ -7,12 +7,6 @@ class UserController extends AbstractController {
     {
         $this->manager = new UserManager("kilyangerard_distorsion","3306","db.3wa.io","kilyangerard","e17f39e5cb4de95dba99a2edd6835ab4");
     }
-  
-        public function accueil()
-        {
-            $this->render("homepage", []);
-        }
-        
         public function login(array $Post) : void
         {
             if (!empty($Post))
@@ -35,9 +29,8 @@ class UserController extends AbstractController {
             {
                 $this->render("login", []);
             }
-            
-            
         }
+        
         public function register(array $post)
         {
             
@@ -51,7 +44,6 @@ class UserController extends AbstractController {
             }
             $this->render("register", []);
         }
-        
         private function loginUser(string $Email , string $Password):bool 
         {
              $user = $this->manager->getUserByEmail($Email);
@@ -65,8 +57,24 @@ class UserController extends AbstractController {
                 return false;
              }
         }
-        
-
+        public function displayCategory()
+        {
+            $CM = new CategoryManager("kilyangerard_distorsion","3306","db.3wa.io","kilyangerard","e17f39e5cb4de95dba99a2edd6835ab4");
+            $SM = new SalonManager("kilyangerard_distorsion","3306","db.3wa.io","kilyangerard","e17f39e5cb4de95dba99a2edd6835ab4");
+            
+            $Salons=$SM->findAllSalon();
+            
+            $Categories=$CM->findAllCategory();
+            $this->renders("homepage", $Categories, $Salons);
+            
+        }
+        public function displaySalon()
+        {
+            $SM = new SalonManager("kilyangerard_distorsion","3306","db.3wa.io","kilyangerard","e17f39e5cb4de95dba99a2edd6835ab4");
+            
+            $Salons=$SM->findAllSalon();
+            $this->render("homepage", $Salons);
+            
+        }
 }
-
 ?>

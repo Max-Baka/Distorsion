@@ -9,26 +9,19 @@ class PostController extends AbstractController {
   
         public function createPost(array $post)
         {
+            $SM = new SalonManager("kilyangerard_distorsion","3306","db.3wa.io","kilyangerard","e17f39e5cb4de95dba99a2edd6835ab4");
             
             if (!empty($post))
             {
-                 if ($post['NomPost']!=='') 
+                 if ($post['NomPost']!=='' && $post["salon"]!=='') 
                  {
-                     $PostToAdd = new Post($post["NomPost"], $post["post"]);
+                     $PostToAdd = new Post($post["NomPost"], $post["salon"]);
                      $this->manager->insertPost($PostToAdd);
                  }
             }
-            $this->render("register-post", []);
+            $Salons=$SM->findAllSalon();
+            $this->render("register-post", $Salons);
         }
-       
-        public function displaysalon()
-        {
-            $salon=$this->manager->findAllSalon();
-            var_dump($salon);
-            return $salon;
-        }
-        
-
 }
 
 ?>
