@@ -5,6 +5,7 @@
         <label for="NomSalon">Nom de Salon</label>
         <input type="text" name="NomSalon" id="NomSalon" /><br>
                     
+<<<<<<< HEAD
         <label for="category">Choisit une catégorie</label>
         <select name="category" id="category">
         <option value="Hogwarts">Hogwarts</option>
@@ -13,3 +14,15 @@
         <input type="submit" value="Envoyer"/>
     </form>
  </section>
+=======
+
+                    <label>Choisit une catégorie</label>
+                    <select name="cat">
+                     <?php 
+                          foreach($data as $category){ ?>
+        <option><?= $category->getName()?></option>
+                     <?php } ?>
+                    </select>
+                    <input type="submit" value="Envoyer"/>
+            </form>
+>>>>>>> 88905ac08d8a55bb66f9f95866b2292f8cd102da

@@ -1,0 +1,17 @@
+<?php 
+    foreach($data["category"] as $category){ 
+    ?>
+    <ul>
+        <h3><?= $category->getName() ?></h3>
+        
+        <?php foreach($data["post"] as $posts)
+        { ?>
+            <?php if($data["salon"]->getName() === $posts->getSalon())
+            { ?>
+                <li> <?= $posts->getText() ?></li>
+            <?php } ?>
+            
+            ?>
+        <?php } ?> 
+    </ul>        
+    <?php } ?>

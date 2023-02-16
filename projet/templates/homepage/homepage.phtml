@@ -1,13 +1,24 @@
 <h2>Accueil</h2>
+<<<<<<< HEAD
 <?php foreach($data2 as $category){ ?>
         <ul><?= $category->getName()?>
                      <?php } ?>
+=======
+>>>>>>> 88905ac08d8a55bb66f9f95866b2292f8cd102da
 
-    <?php foreach($data as $salon){ ?>
-        <li><?= $salon->getName()?></li>
-                     <?php } ?>
-</ul>
-
-
-
-                    
+    <?php 
+    foreach($data["category"] as $category){ 
+    ?>
+    <ul>
+        <h3><?= $category->getName() ?></h3>
+        
+        <?php foreach($data["salon"] as $salon)
+        { ?>
+            <?php if($category->getName() === $salon->getCategory())
+            { ?>
+                <li> <?= $salon->getName() ?></li>
+            <?php } ?>
+        <?php } ?> 
+    </ul>        
+    <?php } ?>
+    

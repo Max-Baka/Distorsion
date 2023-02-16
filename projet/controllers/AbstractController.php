@@ -7,12 +7,12 @@ abstract class AbstractController {
         $data=$values;
         require 'templates/layout.phtml';
     }
-    public function renders(string $view, array $values, array $value) : void
-    {
-        $template=$view;
-        $data=$values;
-        $data2=$value;
-        require 'templates/layout.phtml';
-    }
+    // public function renders(string $view, array $values, array $value) : void
+    // {
+    //     $template=$view;
+    //     $data=$values;
+    //     $data2=$value;
+    //     require 'templates/layout.phtml';
+    // }
 }
 ?>
