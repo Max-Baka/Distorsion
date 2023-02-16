@@ -1,14 +1,17 @@
 .register{
+    fieldset{
     form{
-         border: 1px solid
+         border : 50px solid;
          border-style: inset;
         label{
-           display: inline-block;
-           width: 90px;
-           text-align: rigth;
+           display : inline-block;
+           width : 90px;
+           text-align : rigth;
         }
         input{
             
         }
     }
+
+ }     
 }

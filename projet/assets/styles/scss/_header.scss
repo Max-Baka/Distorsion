@@ -1,0 +1,22 @@
+#nav{
+     margin-top: 0;
+     width: 100%;
+     background-color: grey;
+     height: 5em;
+     font-family: cursive;
+    ul{
+        display: flex;
+        
+        
+        
+            li{
+                margin-top: 2em;
+                list-style: none;
+                margin-left: 8%;
+
+               a{
+                   text-decoration: none;
+               }
+        }
+    }
+}

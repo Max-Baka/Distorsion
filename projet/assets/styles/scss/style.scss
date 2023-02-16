@@ -1,7 +1,18 @@
-@import "homepage"
-@import "chatroom"
-@import "login-form"
-@import "register-form-category"
-@import "register-form-post"
-@import "register-form-salon"
-@import "register-form"
+@import "header";
+@import "homepage";
+@import "chatroom";
+@import "login-form";
+@import "register-form-category";
+@import "register-form-post";
+@import "register-form-salon";
+@import "register-form";
+
+h1{
+    margin: 0px 0px 0px 0px;
+     width: 100%;
+     height: 5em;
+     font-family: cursive;
+     text-align: center;
+     color: purple;
+     
+}

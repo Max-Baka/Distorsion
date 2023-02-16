@@ -1,0 +1,38 @@
+#nav {
+  margin-top: 0;
+  width: 100%;
+  background-color: grey;
+  height: 5em;
+  font-family: cursive;
+}
+#nav ul {
+  display: flex;
+}
+#nav ul li {
+  margin-top: 2em;
+  list-style: none;
+  margin-left: 8%;
+}
+#nav ul li a {
+  text-decoration: none;
+}
+
+.register fieldset form {
+  border: 50px solid;
+  border-style: inset;
+}
+.register fieldset form label {
+  display: inline-block;
+  width: 90px;
+  text-align: rigth;
+}
+h1 {
+  margin: 0px 0px 0px 0px;
+  width: 100%;
+  height: 5em;
+  font-family: cursive;
+  text-align: center;
+  color: purple;
+}
+
+/*# sourceMappingURL=style.css.map */

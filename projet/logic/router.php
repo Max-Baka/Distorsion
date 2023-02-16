@@ -60,7 +60,7 @@ class Router {
            }
            else 
            {
-               $this->uc->accueil();
+               $this->uc->displayCategory();
                echo"else";
            }
         }
